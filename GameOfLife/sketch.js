@@ -6,7 +6,7 @@ for (let x=0;x<nRC; x++){
   grid[x] = Array(nRC)
 }
 function setup() {
-  createCanvas(1280, 950);
+  createCanvas(2000, 950);
   console.log(grid)
   for (let x=0;x<nRC; x++){
     for (let y = 0; y <  nRC; y++) {
@@ -45,8 +45,8 @@ function draw() {
       fill('black')
       rect(x*sR,y*sC,sR,sC);
       if (grid[x][y] == 1){
-        fill('white');
-        stroke(500);
+        fill(300,300,300);
+        stroke(300,300,300);
         rect(x*sR,y*sC,sR,sC);
       }
     
@@ -65,6 +65,10 @@ for (let i =0; i < nRC; i++){
   }
 }
 grid = nextGrid;
+fill('white')
+textSize(32);
+text('Bienvenido al Juego de la Vida :v!', 1400,30)
+
 frameRate(10);
 }
 
