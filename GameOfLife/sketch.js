@@ -6,13 +6,15 @@ let mx,my;
 let grid = initArray();
 let a = 0;
 let b = 0;
-let pause = false;
-
+let pause=false;
+let fr= 20;
 function setup() {
   createCanvas(1300, 1300);
+  background(0,0,0);
   sR = width/nRC;
   sC = height/nRC;
   grid = randomArray(grid);
+  frameRate(fr)
 }
 
 function draw() {
@@ -22,7 +24,7 @@ function draw() {
   scale(sf);
   translate(-mx, -my);
   translate();
-  background(0,0,0);
+  background(0,0,0)
   for (let y=0; y<nRC; y++) {
     for (let x=0; x<nRC; x++){
       //stroke('white')
@@ -46,7 +48,6 @@ for (let i =0; i < nRC; i++){
   }
 }
 grid = nextGrid;
-frameRate(60);
 if (mouseIsPressed && isLooping) {
   a -= pmouseX - mouseX;
   b -= pmouseY - mouseY;
@@ -98,24 +99,23 @@ function keyPressed(){
   if (keyCode == 82){
     grid = randomArray(grid);
     redraw()
+    frameCount = 0
   }
   else if (keyCode == 32){
     if (pause ==false){
       pause=true;
       noLoop()
     }
-    else{
-      loop();
-      pause=false;
-    }
-  }
+
   else{
     return false;
   }
-}
+}}
 window.addEventListener("wheel", function(e) {
   if (e.deltaY > 0 && isLooping){
     sf *= 1.1;}
   else if (isLooping){
     sf *= 0.90;
 }}); 
+
+
